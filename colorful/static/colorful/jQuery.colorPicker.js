@@ -48,24 +48,24 @@
       swatch.bind("click", function(e){ changeColor($(this).css("background-color")) });
       swatch.bind("mouseover", function(e){ 
         $(this).css("border-color", "#598FEF"); 
-        $("input#color_value").val(toHex($(this).css("background-color")));    
+        //$("input#color_value").val(toHex($(this).css("background-color")));    
         }); 
       swatch.bind("mouseout", function(e){ 
         $(this).css("border-color", "#000");
-        $("input#color_value").val(toHex($(selectorOwner).css("background-color")));
+        //$("input#color_value").val(toHex($(selectorOwner).css("background-color")));
         });
       
      swatch.appendTo(selector);
      });
   
      //add HEX value field
-     hex_field = $("<label for='color_value'>Hex</label><input type='text' size='8' id='color_value'/>");
+     /*hex_field = $("<label for='color_value'>Hex</label><input type='text' size='8' id='color_value'/>");
      hex_field.bind("keydown", function(event){
       if(event.keyCode == 13) {changeColor($(this).val());}
       if(event.keyCode == 27) {toggleSelector()}
      });
      
-     $("<div id='color_custom'></div>").append(hex_field).appendTo(selector);
+     $("<div id='color_custom'></div>").append(hex_field).appendTo(selector);*/
 
      $("body").append(selector); 
      selector.hide();
@@ -98,7 +98,7 @@
       left: $(selectorOwner).offset().left
     }); 
     hexColor = $(selectorOwner).prev("input").val();
-    $("input#color_value").val(hexColor);
+    //$("input#color_value").val(hexColor);
     selector.show();
     
     //bind close event handler
@@ -157,6 +157,6 @@
   };
   
   $.fn.colorPicker.defaultColors = 
-  [ '000000', '993300','333300', '000080', '333399', '333333', '800000', 'FF6600', '808000', '008000', '008080', '0000FF', '666699', '808080', 'FF0000', 'FF9900', '99CC00', '339966', '33CCCC', '3366FF', '800080', '999999', 'FF00FF', 'FFCC00', 'FFFF00', '00FF00', '00FFFF', '00CCFF', '993366', 'C0C0C0', 'FF99CC', 'FFCC99', 'FFFF99' , 'CCFFFF', '99CCFF', 'FFFFFF'];
+  [ "7102f0", "9900ff", "c300ff", "e100ff", "ff00f2", "ff0022", "ff0044", "ff0066", "ff0088", "ff00c0", "b30011", "cd0013", "df0015", "e80000", "ff0c00", "ff2400", "ff3c00", "ff4e00", "ff6600", "ff8a00", "ffa800", "ffde00", "fffc00", "deff00", "aeff00", "7eff00", "48ff00", "2ada01", "01e801", "00ff24", "00ff42", "00ff7e", "00ffae", "00ffde", "00f6ff", "00fcff", "00d8ff", "00c0ff", "00a8ff", "008aff", "000cff", "002aff", "0048ff", "005aff", "006cff"];
   
 })('django' in window ? django.jQuery : jQuery);
